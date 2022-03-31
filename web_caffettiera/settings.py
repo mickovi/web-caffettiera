@@ -19,8 +19,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = ''
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -41,6 +40,9 @@ INSTALLED_APPS = [
     'services.apps.ServicesConfig',
     'blog',
     'social.apps.SocialConfig',
+    'pages.apps.PagesConfig',
+    'ckeditor',
+    'contact',
 ]
 
 MIDDLEWARE = [
@@ -127,6 +129,25 @@ STATIC_URL = 'static/'
 # Media files
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+# ckeditor
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Underline'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            ['Link', 'Unlink'],
+            ['RemoveFormat', 'Source']
+        ]
+    }
+}
+
+# Email config
+EMAIL_HOST = 'smtp.mailtrap.io'
+EMAIL_HOST_USER = 'a905715a6ef659'
+EMAIL_HOST_PASSWORD = '084c5599dcdd92'
+EMAIL_PORT = '2525'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
